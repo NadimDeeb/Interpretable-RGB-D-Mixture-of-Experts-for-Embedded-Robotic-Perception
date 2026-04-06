@@ -1,0 +1,7 @@
+numpy>=1.24.0
+opencv-python>=4.8.0
+torch>=2.0.0
+ultralytics>=8.0.0
+cupy-cuda12x>=12.0.0
+open3d>=0.17.0
+pyrealsense2>=2.54.0
