@@ -114,6 +114,30 @@ MOE_RS_ALIGN=0 MOE_FAST_PLANE_EVERY=1 MOE_SCALE_PLANE=0.50 MOE_RANSAC_ITERS=50 M
 ```bash
 MOE_RS_ALIGN=0 MOE_FAST_PLANE_EVERY=1 MOE_SCALE_PLANE=0.50 MOE_RANSAC_ITERS=50 MOE_RANSAC_POINTS=500 MOE_CONF_EMA_ALPHA=0.0 MOE_VIZ_SHOW_PROPS=1 MOE_PUB_DEPTH=1 MOE_DEPTH_SPLIT_PROPS=1 MOE_TOPK=8 MOE_MAX_DET=8 MOE_FAST_MAX_INST=8 MOE_PROP_DECIMATE=3 MOE_PROP_BUDGET_MS=20.0 MOE_YOLO_DECODE_RES=128 MOE_POLISH_MASKS=1 MOE_DEPTH_MAX_AGE_MS=140 MOE_YOLO_MAX_AGE_MS=140 MOE_FAST_NMS=1 MOE_BATCH_MASKS=1 MOE_VECTOR_STATS=1 MOE_JETSON_MODE=1 MOE_YOLO_SKIP=2 MOE_GATE_VIZ=0 MOE_CONF_DOWNSAMPLE=192 MOE_DS=128 MOE_GATE_LOG_DETAIL=1 MOE_VIZ_SCALE=0.5 MOE_PROF=1 MOE_DEBUG=1 MOE_REPLAY_BAG=/path/to/your/bag.bag python3 src/gate/run_moe.py   --depth-module depth_exp.depth_expert   --yolo-module rgb_exp.yolo_trt_stream   --engine src/rgb_exp/best.engine   --hold-last   --tol-frac 0.9   --tol-ceiling 0.120   --tol-floor 0.010
 ```
+---
+
+## Runtime Configuration
+
+The MoE pipeline exposes a set of environment variables that control synchronization,
+depth processing, proposal generation, fusion behavior, and visualization.
+
+The most impactful tuning parameters are:
+
+- `MOE_RS_ALIGN` – enable/disable RealSense alignment (performance-critical)
+- `MOE_RANSAC_ITERS` – plane fitting iterations (depth robustness vs speed)
+- `MOE_YOLO_SKIP` – RGB frame skipping (throughput vs latency)
+- `MOE_DS` – gate downsample resolution (accuracy vs speed trade-off)
+- `MOE_PROP_DECIMATE` – frequency of depth proposal generation
+- `MOE_PROP_BUDGET_MS` – time budget for proposals per frame
+- `MOE_FUSE_THR` – fusion acceptance threshold
+- `MOE_DEPTH_MAX_AGE_MS` / `MOE_YOLO_MAX_AGE_MS` – synchronization tolerance
+- `MOE_GATE_VIZ` – visualization toggle
+- `MOE_GATE_LOG_DETAIL` – detailed per-instance logging
+
+A complete reference of all supported environment variables, including types,
+defaults, and recommended ranges, is provided here:
+
+👉 [Environment Variable Guide](./MOE_ENV_GUIDE.md)
 
 ---
 
