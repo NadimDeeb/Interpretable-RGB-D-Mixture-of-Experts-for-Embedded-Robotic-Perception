@@ -36,6 +36,7 @@ The system improves robustness in scenarios where RGB-only perception fails (dar
 │   └── sys_arch.pdf
 │
 ├── README.md
+├── MOE_ENV_GUIDE.md
 ├── LICENSE
 └── requirements.txt
 ```
