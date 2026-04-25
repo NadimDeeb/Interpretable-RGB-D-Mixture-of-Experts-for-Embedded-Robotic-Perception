@@ -51,7 +51,7 @@ The system improves robustness in scenarios where RGB-only perception fails (dar
 
 ## System Architecture
 
-![MoE Architecture](docs/sys_arch.png)
+![MoE Architecture](docs/sys_arch.pdf)
 
 ---
 
