@@ -16,6 +16,12 @@ The system improves robustness in scenarios where RGB-only perception fails (dar
 
 ---
 
+## Example Outputs
+
+![MoE perception output](docs/bag5_darkness.png)
+
+![MoE perception output](docs/rgb_depth_collab.png)
+
 ## Repository Structure
 
 ```text
@@ -45,10 +51,7 @@ The system improves robustness in scenarios where RGB-only perception fails (dar
 
 ## System Architecture
 
-See:
-- `docs/sys_arch.pdf` → full system diagram  
-- `docs/rgb_depth_collab.png` → RGB-depth fusion example  
-- `docs/bag5_darkness.png` → failure/recovery case  
+![MoE Architecture](docs/sys_arch.png)
 
 ---
 
